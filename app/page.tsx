@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
 
 type Language = "eng" | "nep";
 type Theme = "light" | "dark";
@@ -29,11 +31,9 @@ const copy = {
 		workingTitle: "Currently Working On",
 		
 		toolsTitle: "Tools I Reach For",
-		toolsIntro:
-			"A practical stack for mobile-first products, responsive web experiences, and fast iteration.",
+		
 		experienceTitle: "Where I've Worked",
-		experienceIntro:
-			"Practical experience built through product work, coursework, and self-directed projects.",
+		
 		projectsTitle: "Things I've Built",
 		projectsIntro:
 			"Selected projects that show product thinking, mobile development, and full-stack curiosity.",
@@ -66,14 +66,11 @@ const copy = {
 		workingIntro:
 			"उत्पादन, सिकाइ लक्ष्य र रिसर्चमा केन्द्रित काम जसले डिजाइन र विकास प्रक्रियालाई बलियो बनाउँछ।",
 		toolsTitle: "प्रयोग गर्ने टुलहरू",
-		toolsIntro:
-			"मोबाइल-फर्स्ट उत्पादन, responsive वेब अनुभव र छिटो iteration का लागि व्यवहारिक stack।",
+		
 		experienceTitle: "अनुभव",
-		experienceIntro:
-			"Product work, coursework र self-directed projects बाट बनेको practical experience।",
+		
 		projectsTitle: "बनाएका कामहरू",
-		projectsIntro:
-			"Product thinking, mobile development र full-stack curiosity देखाउने केही कामहरू।",
+		
 		ctaTitle: "सँगै काम गरौं",
 		ctaBody:
 			"Product idea, internship opportunity वा collaboration छ? सोचेर बनाइएको engineering चाहिने practical projects का लागि म उपलब्ध छु।",
@@ -356,11 +353,13 @@ export default function Home() {
 
 					<aside className="profile-card" aria-label="Profile image component">
 						<div className="portrait-frame">
-							<img
-								src="/Users/kabingiri/Desktop/Porfolio/app/image.jpg"
-								alt="Samrat Giri"
-								className="profile-image"
-							/>
+							<Image
+  src="/image.jpg"
+  alt="Samrat Giri"
+  width={280}
+  height={280}
+  className="profile-image"
+/>
 						</div>
 						
 					</aside>
@@ -424,7 +423,7 @@ export default function Home() {
 		<span>04</span>
 		<div>
 			<h2>{content.toolsTitle}</h2>
-			<p>{content.toolsIntro}</p>
+
 		</div>
 	</div>
 	<div className="tools-container">
@@ -440,17 +439,36 @@ export default function Home() {
 						<span>05</span>
 						<div>
 							<h2>{content.experienceTitle}</h2>
-							<p>{content.experienceIntro}</p>
+
 						</div>
 					</div>
-					<div className="experience-grid">
-						{experienceCards[language].map((item) => (
-							<article className="experience-card" key={item.title}>
-								<h3>{item.title}</h3>
-								<p>{item.body}</p>
-							</article>
-						))}
-					</div>
+					<div className="timeline-work">
+ 
+
+  <div className="timeline-row">
+    <div className="timeline-year">
+      <span className="dot"></span>
+      <span>2021 → 2025</span>
+    </div>
+
+    <div className="timeline-content">
+      <h3>Avenier Tech</h3>
+
+      <p>
+       Worked as a Flutter Intern at Avenier Tech, assisting in mobile app development, UI design, API integration, and bug fixing using Flutter and Dart.
+      </p>
+
+      <div className="timeline-tags">
+        <span>Dart</span>
+        <span>Docker</span>
+        <span>Git</span>
+        <span>AWS</span>
+      </div>
+    </div>
+
+  
+  </div>
+</div>
 				</section>
 
 				<section className="content-section" id="projects">
@@ -458,33 +476,32 @@ export default function Home() {
 						<span>06</span>
 						<div>
 							<h2>{content.projectsTitle}</h2>
-							<p>{content.projectsIntro}</p>
+
 						</div>
 					</div>
 					<div className="projects-grid">
 						{projects[language].map((project) => (
 							<article className="project-card" key={project.title}>
-								<h3>{project.title}</h3>
+								<h3>
+  <span className="project-prefix">~/</span>
+  {project.title}
+</h3>
 								<p>{project.body}</p>
 								<div className="project-stack">
 									{project.stack.map((tech) => (
 										<span key={tech}>{tech}</span>
 									))}
 								</div>
-								<div className="project-links">
+								<footer className="project-links">
+								
 									<a
-										href={project.github}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										GitHub
-									</a>
-									{project.demo ? (
-										<a href={project.demo}>Live Demo</a>
-									) : (
-										<span>Live demo soon</span>
-									)}
-								</div>
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub ↗
+    </a>
+								</footer>
 							</article>
 						))}
 					</div>
@@ -492,7 +509,7 @@ export default function Home() {
 
 				<section className="contact-section" id="contact">
 					<div>
-						<span className="eyebrow">07 / Contact</span>
+
 						<h2>{content.ctaTitle}</h2>
 						<p>{content.ctaBody}</p>
 					</div>
@@ -503,18 +520,7 @@ export default function Home() {
 						<a className="email-link" href={`mailto:${content.contactEmail}`}>
 							{content.emailLabel}: {content.contactEmail}
 						</a>
-						<div className="contact-socials">
-							{socials.map((social) => (
-								<a
-									key={social.label}
-									href={social.href}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{social.label}
-								</a>
-							))}
-						</div>
+						
 					</div>
 				</section>
 			</div>
