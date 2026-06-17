@@ -448,7 +448,7 @@ export default function Home() {
   <div className="timeline-row">
     <div className="timeline-year">
       <span className="dot"></span>
-      <span>2021 → 2025</span>
+      <span> Jan 2025 → Jun 2026 </span>
     </div>
 
     <div className="timeline-content">
