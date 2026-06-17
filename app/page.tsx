@@ -25,14 +25,13 @@ const copy = {
 		introLead:
 			"I build clean mobile and web products with a focus on usability, speed, and simple interfaces.",
 		introBody: "Currently working with Flutter, Firebase, React, and Next.js.",
-		socialTitle: "Find me on",
+		
 		workingTitle: "Currently Working On",
-		workingIntro:
-			"Focused work across products, learning goals, and research that improves the way I design and ship software.",
+		
 		toolsTitle: "Tools I Reach For",
 		toolsIntro:
 			"A practical stack for mobile-first products, responsive web experiences, and fast iteration.",
-		experienceTitle: "Experience",
+		experienceTitle: "Where I've Worked",
 		experienceIntro:
 			"Practical experience built through product work, coursework, and self-directed projects.",
 		projectsTitle: "Things I've Built",
@@ -42,7 +41,7 @@ const copy = {
 		ctaBody:
 			"Have a product idea, internship opportunity, or collaboration in mind? I am open to practical projects where thoughtful engineering matters.",
 		emailLabel: "Email",
-		contactEmail: "samrat@example.com",
+		contactEmail: "samratgiri729@example.com",
 	},
 	nep: {
 		portfolioLabel: "पोर्टफोलियो / सम्राट गिरी",
@@ -79,7 +78,7 @@ const copy = {
 		ctaBody:
 			"Product idea, internship opportunity वा collaboration छ? सोचेर बनाइएको engineering चाहिने practical projects का लागि म उपलब्ध छु।",
 		emailLabel: "इमेल",
-		contactEmail: "samrat@example.com",
+		contactEmail: "samratgiri729@example.com",
 	},
 };
 
@@ -198,7 +197,7 @@ const toolGroups = [
 	},
 	{
 		title: "Workflow",
-		tools: ["Git", "GitHub", "Figma", "Vercel"],
+		tools: ["Git", ],
 	},
 ];
 
@@ -218,13 +217,7 @@ const projects = {
 			github: "https://github.com/SamratGiri",
 			demo: "",
 		},
-		{
-			title: "Developer Portfolio",
-			body: "A minimalist editorial portfolio with live Nepal time, theme switching, bilingual content, and responsive sections.",
-			stack: ["Next.js", "React", "CSS"],
-			github: "https://github.com/SamratGiri",
-			demo: "#top",
-		},
+		
 	],
 	nep: [
 		{
@@ -241,13 +234,7 @@ const projects = {
 			github: "https://github.com/SamratGiri",
 			demo: "",
 		},
-		{
-			title: "Developer Portfolio",
-			body: "Live Nepal time, theme switch, bilingual content र responsive sections भएको minimalist editorial portfolio।",
-			stack: ["Next.js", "React", "CSS"],
-			github: "https://github.com/SamratGiri",
-			demo: "#top",
-		},
+	
 	],
 };
 
@@ -369,79 +356,85 @@ export default function Home() {
 
 					<aside className="profile-card" aria-label="Profile image component">
 						<div className="portrait-frame">
-							<span aria-hidden="true">SG</span>
+							<img
+								src="/Users/kabingiri/Desktop/Porfolio/app/image.jpg"
+								alt="Samrat Giri"
+								className="profile-image"
+							/>
 						</div>
+						
 					</aside>
 				</section>
 
 				<div className="section-divider" aria-hidden="true" />
 
 				<section className="content-section intro-section" id="introduction">
-					<div className="section-heading">
-						<span>01</span>
-						<h2>{content.introTitle}</h2>
-					</div>
-					<div className="intro-copy">
-						<p className="lead-text">{content.introLead}</p>
-						<p>{content.introBody}</p>
-					</div>
-				</section>
+	<div className="section-heading">
+		<span>01</span>
+		<h2>{content.introTitle}</h2>
+	</div>
+	<div className="intro-copy">
+		<p className="lead-text">{content.introLead}</p>
+		<p>{content.introBody}</p>
+	</div>
+	
+	{/* Social Media Section - Now inside Introduction */}
+	<div className="social-grid">
+		{socials.map((social) => (
+			<a
+				key={social.label}
+				href={social.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="social-card"
+				aria-label={social.label}
+			>
+				<SocialIcon name={social.icon} />
+				<span>{social.label}</span>
+			</a>
+		))}
+	</div>
+</section>
 
-				<section className="content-section find-section" id="find-me">
-					<div className="section-heading">
-						<span>02</span>
-						<h2>{content.socialTitle}</h2>
-					</div>
-					<div className="social-links">
-						{socials.map((social) => (
-							<a
-								key={social.label}
-								href={social.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label={social.label}
-							>
-								<SocialIcon name={social.icon} />
-								<span>{social.label}</span>
-							</a>
-						))}
-					</div>
-				</section>
+				
 
 				<section className="content-section" id="working">
 					<div className="section-heading wide">
-						<span>03</span>
-						<div>
-							<h2>{content.workingTitle}</h2>
-							<p>{content.workingIntro}</p>
-						</div>
-					</div>
-					<div className="card-grid">
-						{workingCards[language].map((item) => (
-							<article className="work-card" key={item.title}>
-								<span>{item.label}</span>
-								<h3>{item.title}</h3>
-								<p>{item.body}</p>
-							</article>
-						))}
-					</div>
-				</section>
+
+		<div>
+			<h2>{content.workingTitle}</h2>
+
+		</div>
+	</div>
+	<div className="three-col-grid">
+		<article className="stat-card">
+			<h3 className="stat-label">WORKING ON</h3>
+			<p className="stat-text">Freelancing at a steady pace – open to inquiries.</p>
+		</article>
+		<article className="stat-card">
+			<h3 className="stat-label">BUILDING</h3>
+			<p className="stat-text">Flutter apps with Claude Code as my pair</p>
+		</article>
+		
+	</div>
+</section>
 
 				<section className="content-section tools-section" id="tools">
-					<div className="section-heading wide">
-						<span>04</span>
-						<div>
-							<h2>{content.toolsTitle}</h2>
-							<p>{content.toolsIntro}</p>
-						</div>
-					</div>
-					<div className="tools-panel">
-						{toolGroups.flatMap((group) =>
-							group.tools.map((tool) => <span key={tool}>{tool}</span>),
-						)}
-					</div>
-				</section>
-
+	<div className="section-heading wide">
+		<span>04</span>
+		<div>
+			<h2>{content.toolsTitle}</h2>
+			<p>{content.toolsIntro}</p>
+		</div>
+	</div>
+	<div className="tools-container">
+		<div className="tools-grid">
+			{toolGroups.flatMap((group) =>
+				group.tools.map((tool) => <span key={tool} className="tool-item">{tool}</span>),
+			)}
+		</div>
+	</div>
+</section>
 				<section className="content-section" id="experience">
 					<div className="section-heading wide">
 						<span>05</span>
