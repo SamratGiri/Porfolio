@@ -466,6 +466,35 @@ svg {
 
 .content-section {
 	padding: 72px 0;
+	animation: fadeRise 780ms ease both;
+}
+
+#introduction {
+	animation: fadeRise 780ms 0ms ease both;
+}
+
+#working {
+	animation: fadeRise 780ms 120ms ease both;
+}
+
+#tools {
+	animation: fadeRise 780ms 240ms ease both;
+}
+
+#experience {
+	animation: fadeRise 780ms 360ms ease both;
+}
+
+#projects {
+	animation: fadeRise 780ms 480ms ease both;
+}
+
+#contact {
+	animation: fadeRise 780ms 600ms ease both;
+}
+
+.contact-section {
+	animation: fadeRise 780ms 600ms ease both;
 }
 
 .section-heading {
@@ -1432,4 +1461,16 @@ border: 2px solid #171512;
   .project-card {
     border-right: none;
   }
+}
+.fade-section {
+	opacity: 0;
+	transform: translateY(50px);
+	transition:
+		opacity 0.9s cubic-bezier(.22,1,.36,1),
+		transform 0.9s cubic-bezier(.22,1,.36,1);
+}
+
+.fade-section.visible {
+	opacity: 1;
+	transform: translateY(0);
 }
